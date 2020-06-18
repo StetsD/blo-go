@@ -1,0 +1,12 @@
+{{ template "header.html" .}}
+
+<ul>
+    {{range .payload }}
+        <li>
+            <h3><a href="/article/view/{{.ID}}">{{.Title}}</a></h3>
+            <p>{{.Content}}</p>
+        </li>
+    {{end}}
+</ul>
+
+{{ template "footer.html" .}}

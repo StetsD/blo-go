@@ -60,3 +60,12 @@ func CreateArticle(c *gin.Context) {
 		"payload": a,
 	}, "submission-successful.html")
 }
+
+func ShowArticles(c *gin.Context) {
+	articles := store.GetAllArticles()
+
+	renderer.Render(c, gin.H{
+		"title": "Articles",
+		"payload": articles,
+	}, "articles.html")
+}

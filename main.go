@@ -2,26 +2,17 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"net/http"
+	"github.com/stetsd/blo-go/routes"
 )
 
 var router *gin.Engine
 
 func main() {
+	gin.SetMode(gin.ReleaseMode)
 	router = gin.Default()
 	router.LoadHTMLGlob("templates/*")
 
-	router.GET("/", func(c *gin.Context) {
-		c.HTML(
-			http.StatusOK,
-			"index.html",
-			gin.H{
-				"title": "Home Page",
-			},
-		)
-	})
-
-	initializeRoutes()
+	routes.Init(router)
 
 	router.Run()
 }

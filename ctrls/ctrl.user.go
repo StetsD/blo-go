@@ -22,7 +22,7 @@ func PerformLogin(c *gin.Context) {
 
 	if validators.IsUserValid(username, password) {
 		token := generateSessionToken()
-		c.SetCookie("token", token, 3600, "", "", true, false)
+		c.SetCookie("token", token, 3600, "", "", false, false)
 		c.Set("is_logged_in", true)
 
 		renderer.Render(c, gin.H{
@@ -40,7 +40,7 @@ func generateSessionToken() string {
 }
 
 func Logout(c *gin.Context) {
-	c.SetCookie("token", "", -1, "", "", true, false)
+	c.SetCookie("token", "", -1, "", "", false, false)
 
 	c.Redirect(http.StatusTemporaryRedirect, "/")
 }
@@ -56,7 +56,7 @@ func Register(c *gin.Context) {
 
 	if _, err := store.CreateNewUser(username, password); err == nil {
 		token := generateSessionToken()
-		c.SetCookie("token", token, 3600, "", "", true, false)
+		c.SetCookie("token", token, 3600, "", "", false, false)
 		c.Set("is_logged_in", true)
 
 		renderer.Render(c, gin.H{

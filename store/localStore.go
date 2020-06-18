@@ -6,14 +6,13 @@ import (
 )
 
 var articleList = []models.Article{
-	models.Article{ID: 1, Title: "Article 1", Content: "Article 1 body"},
-	models.Article{ID: 2, Title: "Article 2", Content: "Article 2 body"},
+	models.Article{ID: 1, Title: "Article 1", Content: "Turbo Power!!!"},
+	models.Article{ID: 2, Title: "Article 2", Content: "Turbo Love!!!"},
 }
 
 var userList = []models.User{
-	models.User{Username: "user1", Password: "pass1"},
-	models.User{Username: "user2", Password: "pass2"},
-	models.User{Username: "user3", Password: "pass3"},
+	models.User{Username: "boris", Password: "britva"},
+	models.User{Username: "drug", Password: "sunduk"},
 }
 
 func GetAllArticles() []models.Article {
