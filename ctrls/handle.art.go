@@ -16,6 +16,7 @@ func ShowIndexPage(c *gin.Context) {
 		"payload": articles}, "index.html")
 }
 
+
 func ShowArticleCreationPage(c *gin.Context) {
 	renderer.Render(c, gin.H{
 		"title": "Create New Article",
