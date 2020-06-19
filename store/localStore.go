@@ -41,6 +41,12 @@ func CreateNewArticle(title, content string) (*models.Article, error) {
 }
 
 func CreateNewUser(username, password string) (models.User, error) {
+	for _, user := range userList {
+		if user.Username == username {
+			return models.User{}, errors.New("user already exists")
+		}
+	}
+
 	a := models.User{Username: username, Password: password}
 
 	userList = append(userList, a)
